@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import TeacherLogin from './components/TeacherLogin';
 import StudentLogin from './components/StudentLogin';
 import Dashboard from './components/Dashboard';
@@ -10,14 +10,14 @@ import StudentQuizPage from './components/StudentQuizPage';
 function App() {
   return (
     <Router>
-      <Routes>
-        <Route path="/teacher-login" element={<TeacherLogin />} />
-        <Route path="/student-login" element={<StudentLogin />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/class/:classId" element={<ClassPage />} />
-        <Route path="/create-quiz" element={<CreateQuiz />} />
-        <Route path="/student-quiz" element={<StudentQuizPage />} />
-      </Routes>
+      <Switch>
+        <Route path="/teacher-login" component={TeacherLogin} />
+        <Route path="/student-login" component={StudentLogin} />
+        <Route path="/dashboard" component={Dashboard} />
+        <Route path="/class/:classId" component={ClassPage} />
+        <Route path="/create-quiz" component={CreateQuiz} />
+        <Route path="/student-quiz" component={StudentQuizPage} />
+      </Switch>
     </Router>
   );
 }
